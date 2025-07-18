@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview Q&A Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-content-type-options" content="nosniff">
+    <link rel="stylesheet" href="style.css">
+    <!-- Tagify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-title">Interview Q&A Generator</div>
+        <div class="navbar-actions">
+            <p>WELCOME!</p>
+        </div>
+    </nav>
+
+    <!-- Auth Container -->
+    <div id="auth-container" style="display:block;">
+        <div id="login-form" style="display:block;">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email" required />
+            <input type="password" id="login-password" placeholder="Password" required />
+            <button id="loginBtn">Login</button>
+            <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            <div id="login-error" style="color:red;"></div>
+        </div>
+        <div id="signup-form" style="display:none;">
+            <h2>Sign Up</h2>
+            <input type="email" id="signup-email" placeholder="Email" required />
+            <input type="password" id="signup-password" placeholder="Password" required />
+            <button id="signupBtn">Sign Up</button>
+            <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            <div id="signup-error" style="color:red;"></div>
+        </div>
+    </div>
+    <div class="container" style="display:none;">
+        <h1>Interview Q&A Generator</h1>
+
+        <!-- Role Input -->
+        <label for="role">Enter Role:</label>
+        <input type="text" id="role" placeholder="e.g., Backend Developer" />
+
+        <!-- Experience Input -->
+        <label for="experience">Experience (in years):</label>
+        <input type="number" id="experience" min="0" placeholder="e.g., 2" />
+
+        <!-- Tag/Chips Input -->
+        <label for="tags-input">Skills/Tools :</label>
+        <input id="tags-input" name="tags-input" placeholder="e.g., Python, React, SQL" />
+
+        <!-- Number of Questions -->
+        <label for="numQuestions">Number of Questions:</label>
+        <input type="number" id="numQuestions" value="5" min="1" max="20" />
+
+        <!-- Generate Button -->
+        <button id="generateBtn">Generate Q&A</button>
+
+        <!-- Output Area -->
+        <div id="output"></div>
+
+        <button id="downloadPdfBtn">Download as PDF</button>
+        <button id="shareBtn">Share Q&A</button>
+        <button id="logoutBtn" class="navbar-btn">Logout</button>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
