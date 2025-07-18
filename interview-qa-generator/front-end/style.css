@@ -1,0 +1,214 @@
+/* ==== Reset & Base Styles ==== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ==== Container ==== */
+.container {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== Auth Container ==== */
+#auth-container {
+    max-width: 400px;
+    margin: 60px auto 0 auto;
+    background: #fff;
+    padding: 2em 2.5em;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ==== Headings ==== */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 35px;
+    color: #222;
+}
+
+/* ==== Labels ==== */
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* ==== Inputs ==== */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[name="tags-input"],
+#tags-input,
+.tagify {
+    width: 100% !important;
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+    margin: 0.5em 0 1em 0;
+}
+
+input:focus,
+.tagify:focus-within {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+    outline: none;
+}
+
+/* ==== Buttons ==== */
+button,
+.container button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, #6366f1, #4f46e5);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #4f46e5, #4338ca);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* ==== Navbar ==== */
+.navbar {
+    width: 100%;
+    background: linear-gradient(to right, #6366f1, #4f46e5);
+    color: #fff;
+    padding: 18px 30px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+}
+
+.navbar-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==== Logout Button (if used as navbar-btn) ==== */
+#logoutBtn.navbar-btn {
+    background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 26px;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(239,68,68,0.15);
+    margin-left: auto;
+}
+
+#logoutBtn.navbar-btn:hover {
+    background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(220,38,38,0.18);
+}
+
+/* ==== Output ==== */
+#output {
+    margin-top: 30px;
+}
+
+/* ==== Question Cards ==== */
+.question-block {
+    background-color: #f8fafc;
+    border-left: 5px solid #6366f1;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.question-block h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #222;
+}
+
+.question-block p {
+    margin: 0 0 8px 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.question-block p strong {
+    color: #4f46e5;
+}
+
+/* Optional: differentiate critique visually */
+.question-block p:last-child {
+    background-color: #f0f4ff;
+    padding: 10px;
+    border-left: 4px solid #4f46e5;
+    border-radius: 6px;
+    margin-top: 10px;
+    color: #333;
+    font-style: italic;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container, #auth-container {
+        padding: 1em;
+    }
+}
