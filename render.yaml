@@ -5,7 +5,7 @@ services:
     region: singapore  # or oregon
     buildCommand: pip install -r requirements.txt
     startCommand: ./start.sh
-    rootDir: back-end
+    rootDir: interview-qa-generator/back-end
     plan: free
 
     envVars:
