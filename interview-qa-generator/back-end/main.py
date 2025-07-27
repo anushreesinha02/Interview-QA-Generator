@@ -1,13 +1,13 @@
-from flask import Flask, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from prompt_builder import build_prompt
 from gemini_client import get_llm_response as get_gemini_response
 from question_parser import parse_qa
-from flask import render_template
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = "your_secret_key"
 CORS(app, supports_credentials=True)
 
