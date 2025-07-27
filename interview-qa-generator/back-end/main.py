@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from prompt_builder import build_prompt
 from gemini_client import get_llm_response as get_gemini_response
 from question_parser import parse_qa
+from flask import render_template
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -89,7 +90,7 @@ def generate_alias():
 
 @app.route('/', methods=['GET'])
 def home():
-    return "Interview Ques-Ans Generator API is running!"
+    return render_template('index.html')
 
 @app.route('/api/generate/api', methods=['GET'])
 def generate_api():
