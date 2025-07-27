@@ -8,7 +8,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def get_llm_response(prompt):
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
         "Content-Type": "application/json"
     }
 

@@ -2,15 +2,18 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
 
+    // Dynamic base URL
+    const API_BASE = window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1")
+        ? "http://127.0.0.1:5000"
+        : "https://interview-qa-generator.onrender.com";
+
     // Auth logic
     const authContainer = document.getElementById("auth-container");
     const loginForm = document.getElementById("login-form");
     const signupForm = document.getElementById("signup-form");
     const container = document.querySelector(".container");
 
-    // Email validation function
     function isValidEmail(email) {
-        // Simple regex for most email formats
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
@@ -26,19 +29,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     document.getElementById("signupBtn").onclick = async () => {
-        console.log("Signup clicked");     
+        console.log("Signup clicked");
         const email = document.getElementById("signup-email").value;
         const password = document.getElementById("signup-password").value;
         if (!isValidEmail(email)) {
             document.getElementById("signup-error").innerText = "Please enter a valid email address.";
             return;
         }
-        const API_BASE = "http://127.0.0.1:5000";
 
         const res = await fetch(`${API_BASE}/api/signup`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({email, password}),
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
             credentials: "include"
         });
         const data = await res.json();
@@ -52,19 +54,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     document.getElementById("loginBtn").onclick = async () => {
-        console.log("Login clicked"); 
+        console.log("Login clicked");
         const email = document.getElementById("login-email").value;
         const password = document.getElementById("login-password").value;
         if (!isValidEmail(email)) {
             document.getElementById("login-error").innerText = "Please enter a valid email address.";
             return;
         }
-        const API_BASE = "http://127.0.0.1:5000";
 
         const res = await fetch(`${API_BASE}/api/login`, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({email, password}),
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
             credentials: "include"
         });
         const data = await res.json();
@@ -106,11 +107,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        container.style.display = "block"; // <-- force show the container
+        container.style.display = "block";
         output.innerHTML = "<p>Generating questions...</p>";
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/generate", {
+            const response = await fetch(`${API_BASE}/api/generate`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -177,7 +178,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             .join('\n\n');
         if (navigator.share) {
             try {
-                await navigator.share({title: "Interview Q&A", text});
+                await navigator.share({ title: "Interview Q&A", text });
             } catch (e) {
                 alert("Share cancelled or failed.");
             }
@@ -191,12 +192,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-        // Logout button
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.onclick = () => {
-                // Optionally, call a backend logout endpoint here
-                window.location.href = "index.html";
-            };
-        }
+    // Logout
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+        logoutBtn.onclick = () => {
+            window.location.href = "index.html";
+        };
+    }
 });

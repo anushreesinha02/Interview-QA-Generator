@@ -5,6 +5,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from prompt_builder import build_prompt
 from gemini_client import get_llm_response as get_gemini_response
 from question_parser import parse_qa
+from dotenv import load_dotenv
+import os  
+load_dotenv()
+
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
