@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: interview-qa-generator
+    env: python
+    region: singapore  # or oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: ./start.sh
+    rootDir: back-end
+    plan: free
+
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
