@@ -5,7 +5,7 @@
     <title>Interview Q&A Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-content-type-options" content="nosniff">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <!-- Tagify CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
 </head>
@@ -69,6 +69,7 @@
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
